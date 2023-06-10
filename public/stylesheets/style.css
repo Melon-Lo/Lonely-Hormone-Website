@@ -21,7 +21,7 @@ body {
   background: rgb(40, 40, 40);
   font-size: 1rem;
   line-height: 1.5rem;
-  font-family: "Teko", 'Lato', sans-serif;
+  font-family: 'Noto Serif TC', serif;
 }
 
 /********** layout **********/
@@ -38,6 +38,7 @@ body {
   width: 100%;
   height: 4rem;
   background-color: rgb(211, 211, 211);
+  z-index: 999;
 }
 
 #lonely-hormone-logo {
@@ -54,12 +55,32 @@ body {
 
 .page {
   all: unset;
-  margin: 0.5rem;
+  margin: 1rem;
   cursor: pointer;
 }
 
+.page-option {
+  position: relative;
+  font-size: 1.2rem;
+}
+
+.page-option::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -0.5rem;
+  border-bottom: 2px black solid;
+  width: 100%;
+  transform: scale(0, 1);
+  transition: 0.2s ease-out;
+}
+
 .page:hover {
-  color: red;
+  font-weight: 1000;
+}
+
+.page:hover .page-option::after {
+  transform: scale(1, 1);
 }
 
 #lonely-hormone-logo {
@@ -75,7 +96,7 @@ body {
 #characters-wrapper {
   position: relative;
   width: 100%;
-  height: 25rem;
+  height: 26rem;
 }
 
 #characters-bg-img {
@@ -88,29 +109,60 @@ body {
 
 #characters-avatars {
   position: absolute;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  height: 100%;
   bottom: 0;
-  max-width: 100%;
-  max-height: 25rem;
+}
+
+.character-box {
+  position: relative;
+  width: 20%;
+  height: 100%;
+  z-index: 0;
 }
 
 .character {
-  object-fit: contain;
+  position: absolute;
+  bottom: 0;
   width: 20%;
-  max-height: 350%;
+  object-fit: contain;
+  max-height: 400px;
+  transition: 0.3s;
+  opacity: 0.8;
 }
+
+.character-name-box {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 60%;
+  width: 20%;
+  height: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: 0.3s;
+  transform: scale(1, 0);
+}
+
+.character-name {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+}
+
+/* animation */
 
 .character:hover {
-  transform: scale(1.5, 1.5);
+  transform: scale(1.2, 1.2);
+  opacity: 1;
 }
 
-#chuan-character {
-  transform: scaleX(-1);
+.character-name-box:hover, .character:hover + .character-name-box {
+  opacity: 1;
+  transform: scale(1, 1);
 }
-
-#chuan-character:hover {
-  /* transform: scaleX(-1); */
-  transform: scale(1.5, 1.5);
-}
-
