@@ -101,11 +101,16 @@ body {
   max-height: 350%;
 }
 
+.character:hover {
+  transform: scale(1.5, 1.5);
+}
+
 #chuan-character {
   transform: scaleX(-1);
 }
 
-#jelly-character {
-  transform: scale(1, 1);
-  bottom: 0;
+#chuan-character:hover {
+  /* transform: scaleX(-1); */
+  transform: scale(1.5, 1.5);
 }
+
