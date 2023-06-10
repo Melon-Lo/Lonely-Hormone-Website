@@ -18,10 +18,15 @@ body {
 
 body {
   margin: 0;
-  background: rgb(40, 40, 40);
+  background: rgb(18, 18, 18);
   font-size: 1rem;
   line-height: 1.5rem;
   font-family: 'Noto Serif TC', serif;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
 }
 
 /********** layout **********/
@@ -73,14 +78,6 @@ body {
   width: 100%;
   transform: scale(0, 1);
   transition: 0.2s ease-out;
-}
-
-.page:hover {
-  font-weight: 1000;
-}
-
-.page:hover .page-option::after {
-  transform: scale(1, 1);
 }
 
 #lonely-hormone-logo {
@@ -155,6 +152,85 @@ body {
   border-radius: 0.5rem;
 }
 
+/* topic */
+
+#topic-wrapper {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.we-are-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  font-size: 1.5rem;
+  font-weight: 1000;
+}
+
+.we-are {
+  display: inline;
+  background: 
+    linear-gradient(90deg, #000000, #000000);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  background-position: left;
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+
+
+.lonely-hormone-box {
+  width: 50%;
+}
+
+.lonely-hormone {
+  width: 100%;
+  transition: 1s;
+  opacity: 0;
+}
+
+.lonely-hormone-box:hover .lonely-hormone {
+  opacity: 1;
+}
+
+/* introduction */
+
+.introduction-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+}
+
+.introduction-title::before, .introduction-title::after{
+  content:"";
+  width: 10rem;
+  margin: 1rem;
+  border-top: 1px solid rgb(255, 255, 255);
+}
+
+/* about */
+
+.about-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+}
+
+.about-title::before, .about-title::after{
+  content:"";
+  width: 10rem;
+  margin: 1rem;
+  border-top: 1px solid rgb(255, 255, 255);
+}
+
 /* animation */
 
 .character:hover {
@@ -165,4 +241,22 @@ body {
 .character-name-box:hover, .character:hover + .character-name-box {
   opacity: 1;
   transform: scale(1, 1);
+}
+
+.page:hover {
+  font-weight: 1000;
+}
+
+.page:hover .page-option::after {
+  transform: scale(1, 1);
+}
+
+.we-are:hover {
+  animation: show 1s ease-out forwards;
+}
+
+@keyframes show {
+  to {
+    background-size: 100% 100%;
+  }
 }
