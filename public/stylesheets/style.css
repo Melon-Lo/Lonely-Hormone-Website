@@ -1,5 +1,36 @@
+/********** import font **********/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Noto+Serif+TC:wght@300&family=Teko:wght@500&display=swap');
+
+/********** basic settings **********/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: rgb(40, 40, 40);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-family: "Teko", 'Lato', sans-serif;
+}
+
+/********** layout **********/
+
+/* nav bar */
+
 #nav-bar {
   position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
   display: flex;
@@ -14,8 +45,9 @@
 }
 
 #pages {
+  flex: 1;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
   margin: 0.5rem;
 }
@@ -34,21 +66,46 @@
   height: 100%;
 }
 
-#container {
-  margin-top: 6rem;
-  width: 100%;
-}
+/* characters */
 
 #characters {
-  display: flex;
+  margin-top: 10rem;
+}
+
+#characters-wrapper {
+  position: relative;
   width: 100%;
+  height: 25rem;
+}
+
+#characters-bg-img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+#characters-avatars {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  max-width: 100%;
+  max-height: 25rem;
 }
 
 .character {
-  object-fit: cover;
+  object-fit: contain;
   width: 20%;
+  max-height: 350%;
 }
 
 #chuan-character {
   transform: scaleX(-1);
+}
+
+#jelly-character {
+  transform: scale(1, 1);
+  bottom: 0;
 }
