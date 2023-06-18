@@ -10,11 +10,6 @@
   box-sizing: border-box;
 }
 
-a {
-  all: unset;
-  cursor: pointer;
-}
-
 html,
 body {
   width: 100%;
@@ -27,6 +22,7 @@ body {
   font-size: 1rem;
   line-height: 1.5rem;
   font-family: 'Noto Serif TC', serif;
+  overflow-x: hidden;
 }
 
 .container {
@@ -35,6 +31,10 @@ body {
 }
 
 /********** layout **********/
+
+.hidden {
+  opacity: 0;
+}
 
 /* nav bar */
 
@@ -185,6 +185,7 @@ body {
   background-position: left;
   color: transparent;
   -webkit-background-clip: text;
+  animation: typing 1s ease-out forwards
 }
 
 .lonely-hormone-box {
@@ -261,12 +262,24 @@ body {
   color: aliceblue;
 }
 
-.character-introduction-slogan {
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  background-color: black;
+.slogan-box {
+  margin-top: 2rem;
+  background-color: #000000;
+  height: 100%;
+}
+
+.character-introduction-slogan.typing.appear {
+  display: inline;
+  background: 
+    linear-gradient(90deg, #ffffff, #ffffff);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  background-position: left;
+  color: transparent;
+  -webkit-background-clip: text;
   font-size: 1.5rem;
-  color: aliceblue;
+  font-weight: 1000;
+  animation: typing 1s ease-out forwards
 }
 
 .character-introduction-content{
@@ -305,7 +318,9 @@ body {
   border-top: 1px solid rgb(255, 255, 255);
 }
 
-/* animation */
+/********** animation **********/
+
+/* hover animation */
 
 .character:hover {
   transform: scale(1.2, 1.2);
@@ -332,12 +347,46 @@ body {
   transform: scale(1, 1);
 }
 
-.we-are {
-  animation: show 1s ease-out forwards;
-}
+/* typing effect animation */
 
-@keyframes show {
+@keyframes typing {
   to {
     background-size: 100% 100%;
+  }
+}
+
+/* fade in animation */
+
+.appear.slider.from-left {
+  animation-name: fadeInLeft;
+  animation-duration: 1.5s;
+}
+
+.appear.slider.from-right {
+  animation-name: fadeInRight;
+  animation-duration: 1.5s;
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translate(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
   }
 }
